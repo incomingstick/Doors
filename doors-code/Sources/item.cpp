@@ -83,6 +83,10 @@ int Item::getSellPrice() {
     return sellPrice;
 }
 
+QPixmap Item::getPixmap() {
+    return item;
+}
+
 void Item::setRarity(int weight) {
     int rare = rand() % 101;
     if (rare >= 60 + weight)

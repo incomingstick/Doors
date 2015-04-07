@@ -9,6 +9,7 @@ Inventory::Inventory(QWidget *parent) :
     ui->setupUi(this);
 
     this->move(QApplication::desktop()->availableGeometry().center() - this->rect().center());
+    this->setWindowTitle("Inventory");
 }
 
 Inventory::~Inventory()

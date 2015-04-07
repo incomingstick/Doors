@@ -2,6 +2,7 @@
 #define ITEM_H
 #include <string>
 #include <cstdlib>
+#include <QPixmap>
 
 class Player;
 
@@ -37,7 +38,8 @@ public:
     void setItemLevel();
     bool equals(Item obj);
     string toString();
-
+    QPixmap getPixmap();
+    
 private:
     string rarity, prefix, name, suffix, type;
 
@@ -45,6 +47,8 @@ private:
                 critOff = 0, healing = 0, sellPrice = 0, itemLevel = 0;
 
     Player* player;
+    
+    QPixmap* image;
 };
 
 #endif // ITEM_H

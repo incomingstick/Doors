@@ -143,26 +143,26 @@ void Item::setName(int weight) {
             switch (rand() % 3) {
             case 0:
                 name = "Rune of Power";
-                for (Item leg1 : player->getInventory()) {
-                    if (leg1.getName() == "Rune of Power") {
+                for (Item* leg1 : player->getInventory()) {
+                    if (leg1->getName() == "Rune of Power") {
                         if (rand() % 2 == 1) {
                             name = "Rune of Courage";
-                            for (Item leg2 : player->getInventory())
-                                if (leg2.getName() == "Rune of Courage") {
+                            for (Item* leg2 : player->getInventory())
+                                if (leg2->getName() == "Rune of Courage") {
                                     name = "Rune of Wisdom";
-                                    for (Item leg3 : player->getInventory())
-                                        if (leg3.getName() == "Rune of Wisdom") {
+                                    for (Item* leg3 : player->getInventory())
+                                        if (leg3->getName() == "Rune of Wisdom") {
                                             setRarity(weight);
                                             setName(weight);
                                         }
                                 }
                         } else {
                             name = "Rune of Wisdom";
-                            for (Item leg2 : player->getInventory())
-                                if (leg2.getName() == "Rune of Wisdom") {
+                            for (Item* leg2 : player->getInventory())
+                                if (leg2->getName() == "Rune of Wisdom") {
                                     name = "Rune of Courage";
-                                    for (Item leg3 : player->getInventory())
-                                        if (leg3.getName() == "Rune of Courage") {
+                                    for (Item* leg3 : player->getInventory())
+                                        if (leg3->getName() == "Rune of Courage") {
                                             setRarity(weight);
                                             setName(weight);
                                         }
@@ -173,26 +173,26 @@ void Item::setName(int weight) {
                 break;
             case 1:
                 name = "Rune of Courage";
-                for (Item leg1 : player->getInventory()) {
-                    if (leg1.getName() == "Rune of Courage") {
+                for (Item* leg1 : player->getInventory()) {
+                    if (leg1->getName() == "Rune of Courage") {
                         if (rand() % 2 == 1) {
                             name = "Rune of Wisdom";
-                            for (Item leg2 : player->getInventory())
-                                if (leg2.getName() == "Rune of Wisdom") {
+                            for (Item* leg2 : player->getInventory())
+                                if (leg2->getName() == "Rune of Wisdom") {
                                     name = "Rune of Power";
-                                    for (Item leg3 : player->getInventory())
-                                        if (leg3.getName() == "Rune of Power") {
+                                    for (Item* leg3 : player->getInventory())
+                                        if (leg3->getName() == "Rune of Power") {
                                             setRarity(weight);
                                             setName(weight);
                                         }
                                 }
                         } else {
                             name = "Rune of Power";
-                            for (Item leg2 : player->getInventory())
-                                if (leg2.getName() == "Rune of Power") {
+                            for (Item* leg2 : player->getInventory())
+                                if (leg2->getName() == "Rune of Power") {
                                     name = "Rune of Wisdom";
-                                        for (Item leg3 : player->getInventory())
-                                            if (leg3.getName() == "Rune of Wisdom") {
+                                        for (Item* leg3 : player->getInventory())
+                                            if (leg3->getName() == "Rune of Wisdom") {
                                                 setRarity(weight);
                                                 setName(weight);
                                         }
@@ -203,26 +203,26 @@ void Item::setName(int weight) {
                 break;
             case 2:
                 name = "Rune of Wisdom";
-                for (Item leg1 : player->getInventory()) {
-                    if (leg1.getName() == "Rune of Wisdom") {
+                for (Item* leg1 : player->getInventory()) {
+                    if (leg1->getName() == "Rune of Wisdom") {
                         if (rand() % 2 == 1) {
                             name = "Rune of Courage";
-                            for (Item leg2 : player->getInventory())
-                                if (leg2.getName() == "Rune of Courage") {
+                            for (Item* leg2 : player->getInventory())
+                                if (leg2->getName() == "Rune of Courage") {
                                     name = "Rune of Power";
-                                    for (Item leg3 : player->getInventory())
-                                        if (leg3.getName() == "Rune of Power") {
+                                    for (Item* leg3 : player->getInventory())
+                                        if (leg3->getName() == "Rune of Power") {
                                             setRarity(weight);
                                             setName(weight);
                                         }
                                 }
                         } else {
                             name = "Rune of Power";
-                            for (Item leg2 : player->getInventory())
-                                if (leg2.getName() == "Rune of Power") {
+                            for (Item* leg2 : player->getInventory())
+                                if (leg2->getName() == "Rune of Power") {
                                     name = "Rune of Courage";
-                                    for (Item leg3 : player->getInventory())
-                                        if (leg3.getName() == "Rune of Courage") {
+                                    for (Item* leg3 : player->getInventory())
+                                        if (leg3->getName() == "Rune of Courage") {
                                             setRarity(weight);
                                             setName(weight);
                                         }

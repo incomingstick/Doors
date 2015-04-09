@@ -35,3 +35,4 @@ private:
 };
 
 #endif // INVENTORY_H
+

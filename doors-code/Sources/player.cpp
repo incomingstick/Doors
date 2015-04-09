@@ -67,7 +67,7 @@ void Player::setStr(int strength) {
     this->Strength = strength;
 }
 
-int Player::getStr() {
+int Player::getStr() const {
     int mod = 0;
     //for(Item i: inventory)
     //    mod += item->getStrMain();
@@ -78,7 +78,7 @@ void Player::setInt(int intelligence) {
     this->Intelligence = intelligence;
 }
 
-int Player::getInt() {
+int Player::getInt() const {
     int mod = 0;
     //for(Item i: inventory)
     //    mod += item->getIntMain();
@@ -89,14 +89,14 @@ void Player::setDex(int dexterity) {
     this->Dexterity = dexterity;
 }
 
-int Player::getDex() {
+int Player::getDex() const {
     int mod = 0;
     //for(Item i: inventory)
     //    mod += item->getDexMain();
     return Dexterity + mod;
 }
 
-int Player::getAttackPower() {
+int Player::getAttackPower() const {
     int mod = 0;
     //for (Item item : equip)
     //	mod += item.getApOff();
@@ -107,7 +107,7 @@ void Player::setAttackPower(int attackPower) {
     AttackPower = attackPower;
 }
 
-int Player::getSpellPower() {
+int Player::getSpellPower() const {
     int mod = 0;
     //for (Item item : equip)
     //	mod += item.getSpOff();
@@ -118,7 +118,7 @@ void Player::setSpellPower(int spellPower) {
     SpellPower = spellPower;
 }
 
-double Player::getCrit() {
+double Player::getCrit() const {
     int mod = 0;
     //for (Item item : equip)
     //	mod += item.getCritOff();
@@ -129,7 +129,7 @@ void Player::setCrit(double crit) {
     this->crit = crit;
 }
 
-int Player::getHP() {
+int Player::getHP() const {
     return HP;
 }
 
@@ -150,7 +150,7 @@ int Player::getMAX_HP() {
     return MAX_HP = (10 * getLevel()) + (getDex() * 3) + (getInt() * 2) + getStr();
 }
 
-int Player::getCURRENT_EXP() {
+int Player::getCURRENT_EXP() const {
     return CURRENT_EXP;
 }
 
@@ -159,11 +159,11 @@ void Player::setCURRENT_EXP(int CURRENT_EXP) {
     checkLevelUp();
 }
 
-int Player::getMAX_EXP() {
+int Player::getMAX_EXP() const {
     return MAX_EXP;
 }
 
-int Player::getLevel() {
+int Player::getLevel() const {
     return Level;
 }
 
@@ -174,7 +174,7 @@ void Player::setLevel(int level) {
     Level = level;
 }
 
-vector<Item> Player::getInventory() {
+QList<Item> Player::getInventory() const {
     return inventory;
 }
 
@@ -186,7 +186,7 @@ int Player::maxDamage() {
     return getLevel() * 5;
 }
 
-vector<Item> Player::getEquip() {
+QList<Item> Player::getEquip() const {
     return equip;
 }
 
@@ -244,7 +244,7 @@ bool Player::dodge(bool& ability) {
     return false;
 }
 
-int Player::getPointsToSpend() {
+int Player::getPointsToSpend() const {
     return pointsToSpend;
 }
 
@@ -252,7 +252,7 @@ void Player::setPointsToSpend(int pointsToSpend) {
     this->pointsToSpend = pointsToSpend;
 }
 
-QString Player::getName() {
+QString Player::getName() const {
     return name;
 }
 

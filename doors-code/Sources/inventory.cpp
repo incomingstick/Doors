@@ -15,8 +15,6 @@ Inventory::Inventory(QWidget *parent) :
         for(int j = 0; j < 5; j++) {
             inv << new QLabel(this);
             inv.at(j+i*5)->setGeometry(350 - (j * 40), 50 + (i * 40), 30, 30);
-            QPixmap axe("");//":/doors/weapons/Doors Inv/weapons/epic sword.png");
-            inv.at(j+i*5)->setPixmap(axe);
             inv.at(j+i*5)->setScaledContents(true);
             inv.at(j+i*5)->setStyleSheet("border: 1px solid black");
         }
@@ -38,4 +36,10 @@ void Inventory::on_pushButton_clicked()
 
 void Inventory::setPlayer(Player player) {
     this->player = player;
+    for(int i = 0; i < 5; i++) {
+        for(int j = 0; j < 5; j++) {
+            inv.at(j+i*5)->setPixmap(player.getInventory().at(j+i*5).getPixmap());
+            inv.at(j+i*5)->setToolTip(player.getInventory().at(j+i*5).toString());
+        }
+    }
 }

@@ -26,7 +26,7 @@ Item::Item(Player* player, int weight)
     setItemLevel();
 }
 
-Item::Item(string name) {
+Item::Item(QString name) {
     if(name == "Runetitan, Sword of the One") {
         this->name = name;
         rarity = "Legendary";
@@ -39,52 +39,52 @@ Item::~Item()
 
 }
 
-int Item::getStrMain() {
+int Item::getStrMain() const {
     if(name == "Runetitan, Sword of the One")
         return player->getLevel() + 10;
     return strMain;
 }
 
-int Item::getIntMain() {
+int Item::getIntMain() const {
     if(name == "Runetitan, Sword of the One")
         return player->getLevel() + 10;
     return intMain;
 }
 
-int Item::getDexMain() {
+int Item::getDexMain() const {
     if(name == "Runetitan, Sword of the One")
         return player->getLevel() + 10;
     return dexMain;
 }
 
-int Item::getApOff() {
+int Item::getApOff() const {
     if(name == "Runetitan, Sword of the One")
         return player->getLevel() + 5;
     return apOff;
 }
 
-int Item::getSpOff() {
+int Item::getSpOff() const {
     if(name == "Runetitan, Sword of the One")
         return player->getLevel() + 5;
     return spOff;
 }
 
-int Item::getCritOff() {
+int Item::getCritOff() const {
     if(name == "Runetitan, Sword of the One")
         return player->getLevel() + 5;
     return critOff;
 }
 
-int Item::getHealing() {
+int Item::getHealing() const {
     return healing;
 }
 
-int Item::getSellPrice() {
+int Item::getSellPrice() const {
     return sellPrice;
 }
 
-QPixmap Item::getPixmap() {
-    return item;
+QPixmap Item::getPixmap() const {
+    return image;
 }
 
 void Item::setRarity(int weight) {
@@ -103,7 +103,7 @@ void Item::setRarity(int weight) {
 
 void Item::setPrefix() {
     if (rarity == "Common")
-        prefix = string();
+        prefix = QString();
     if (rarity == "Uncommon")
         prefix = "Improved";
     if (rarity == "Rare")
@@ -111,7 +111,7 @@ void Item::setPrefix() {
     if (rarity == "Epic")
         prefix = "Perfect";
     if (rarity == "Legendary")
-        prefix = string();
+        prefix = QString();
 }
 
 void Item::setName(int weight) {
@@ -726,18 +726,18 @@ void Item::setItemLevel() {
     itemLevel = (player->getLevel() * 10) + ilvl;
 }
 
-int Item::getItemLevel() {
+int Item::getItemLevel() const {
     if(name == "Runetitan, Sword of the One")
         return (player->getLevel() * 15) + 10;
     return itemLevel;
 }
 
-string Item::getName() {
-    string toString = "";
-    if (prefix != string())
+QString Item::getName() const {
+    QString toString = "";
+    if (prefix != QString())
         toString += prefix + " ";
     toString += name;
-    if (suffix != string())
+    if (suffix != QString())
         toString += suffix;
     return toString;
 }
@@ -757,8 +757,8 @@ bool Item::equals(Item obj) {
     return false;
 }
 
-string Item::toString() {
-    string toString = "";
+QString Item::toString() const {
+    QString toString = "";
     toString += getName();
     toString += "\n";
     toString += rarity + " " + type + "\n";

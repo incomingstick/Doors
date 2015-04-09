@@ -19,32 +19,32 @@ public:
 public:
     bool checkLevelUp();
     void LevelUp();
-    QString getName();
+    QString getName() const;
     void setName(QString name);
-    int getStr();
+    int getStr() const;
     void setStr(int strength);
-    int getInt();
+    int getInt() const;
     void setInt(int intelligence);
-    int getDex();
+    int getDex() const;
     void setDex(int dexterity);
-    int getAttackPower();
+    int getAttackPower() const;
     void setAttackPower(int attackPower);
-    int getSpellPower();
+    int getSpellPower() const;
     void setSpellPower(int spellPower);
-    double getCrit();
+    double getCrit() const;
     void setCrit(double crit);
-    int getHP();
+    int getHP() const;
     void setHP(int hp);
     int getMAX_HP();
-    int getCURRENT_EXP();
+    int getCURRENT_EXP() const;
     void setCURRENT_EXP(int CURRENT_EXP);
-    int getMAX_EXP();
-    int getLevel();
+    int getMAX_EXP() const;
+    int getLevel() const;
     void setLevel(int level);
-    vector<Item> getInventory();
+    QList<Item> getInventory() const;
     int minDamage();
     int maxDamage();
-    vector<Item> getEquip();
+    QList<Item> getEquip() const;
     void equipItem(Item item);
     Enemy meleeAttack(Enemy enemy, bool block);
     Enemy magicAttack(Enemy actor, bool dodge);
@@ -53,7 +53,7 @@ public:
     void addItem(Item item);
     void setItem(int index, Item item);
     void removeItem(int index);
-    int getPointsToSpend();
+    int getPointsToSpend() const;
     void setPointsToSpend(int pointsToSpend);
 
 private:
@@ -62,8 +62,8 @@ private:
     double crit;
 
     QString name;
-    vector<Item> inventory;
-    vector<Item> equip;
+    QList<Item> inventory;
+    QList<Item> equip;
 };
 
 #endif // PLAYER_H

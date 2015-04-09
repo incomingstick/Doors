@@ -41,10 +41,10 @@ public:
     int getMAX_EXP() const;
     int getLevel() const;
     void setLevel(int level);
-    QList<Item> getInventory() const;
+    QList<Item*> getInventory() const;
     int minDamage();
     int maxDamage();
-    QList<Item> getEquip() const;
+    QList<Item*> getEquip() const;
     void equipItem(Item item);
     Enemy meleeAttack(Enemy enemy, bool block);
     Enemy magicAttack(Enemy actor, bool dodge);
@@ -62,8 +62,8 @@ private:
     double crit;
 
     QString name;
-    QList<Item> inventory;
-    QList<Item> equip;
+    QList<Item*> inventory;
+    QList<Item*> equip;
 };
 
 #endif // PLAYER_H

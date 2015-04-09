@@ -13,42 +13,42 @@ class Item
 public:
     Item();
     Item(Player* player, int weight);
-    Item(string name);
+    Item(QString name);
     ~Item();
 
 public:
-    string getRarity();
-    string getPrefix();
-    string getSuffix();
-    string getType();
-    string getName();
-    int getStrMain();
-    int getIntMain();
-    int getDexMain();
-    int getApOff();
-    int getSpOff();
-    int getCritOff();
-    int getHealing();
-    int getSellPrice();
-    int getItemLevel();
+    QString getRarity() const;
+    QString getPrefix() const;
+    QString getSuffix() const;
+    QString getType() const;
+    QString getName() const;
+    int getStrMain() const;
+    int getIntMain() const;
+    int getDexMain() const;
+    int getApOff() const;
+    int getSpOff() const;
+    int getCritOff() const;
+    int getHealing() const;
+    int getSellPrice() const;
+    int getItemLevel() const;
     void setRarity(int weight);
     void setPrefix();
     void setName(int weight);
     void setStats();
     void setItemLevel();
     bool equals(Item obj);
-    string toString();
-    QPixmap getPixmap();
-    
+    QString toString() const;
+    QPixmap getPixmap() const;
+
 private:
-    string rarity, prefix, name, suffix, type;
+    QString rarity, prefix, name, suffix, type;
 
     int strMain = 0, intMain = 0, dexMain = 0, apOff = 0, spOff = 0,
                 critOff = 0, healing = 0, sellPrice = 0, itemLevel = 0;
 
     Player* player;
-    
-    QPixmap* image;
+
+    QPixmap image;
 };
 
 #endif // ITEM_H

@@ -26,7 +26,6 @@ public class Game {
 	public static void main(String[] args) throws InterruptedException,
 			IOException, ClassNotFoundException {
 		argsInternal = args;
-                //Runtime.getRuntime().exec("/usr/bin/open -a Terminal");
 		in = new Scanner(System.in);
 		System.out.println("~~Welcome to Doors~~");
 		player = Command.start(in, player);

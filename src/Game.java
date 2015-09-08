@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -28,15 +29,20 @@ public class Game {
 		argsInternal = args;
 		in = new Scanner(System.in);
 		String os = System.getProperty("os.name");
+		Process term = null;
 		if(os.charAt(0) == 'W') {
-			//TODO open windows terminal
+			term = Runtime.getRuntime().exec("cmd /c start cmd.exe");
 		}
 		if(os.charAt(0) == 'M') {
-			//TODO open Mac terminal
+			term = Runtime.getRuntime().exec("/usr/bin/open -a Terminal");
 		}
 		if(os.charAt(0) == 'L') {
-			//TODO open Linux terminal
+			term = Runtime.getRuntime().exec("/usr/bin/xterm");
 		}
+		if(term == null) {
+			System.exit(-1);
+		}
+		System.setOut(new PrintStream(term.getOutputStream()));
 		System.out.println("~~Welcome to Doors~~");
 		player = Command.start(in, player);
 		if (player == null) {

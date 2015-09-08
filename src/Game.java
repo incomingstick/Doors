@@ -27,6 +27,16 @@ public class Game {
 			IOException, ClassNotFoundException {
 		argsInternal = args;
 		in = new Scanner(System.in);
+		String os = System.getProperty("os.name");
+		if(os.charAt(0) == 'W') {
+			//TODO open windows terminal
+		}
+		if(os.charAt(0) == 'M') {
+			//TODO open Mac terminal
+		}
+		if(os.charAt(0) == 'L') {
+			//TODO open Linux terminal
+		}
 		System.out.println("~~Welcome to Doors~~");
 		player = Command.start(in, player);
 		if (player == null) {

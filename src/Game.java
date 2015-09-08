@@ -1,15 +1,9 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.Scanner;
 
 /**
  * 
- * @author Nick Gaulke Nov 11, 2014 FinalProject
+ * @author Nick Gaulke
  * 
  */
 public class Game {
@@ -27,22 +21,36 @@ public class Game {
 	public static void main(String[] args) throws InterruptedException,
 			IOException, ClassNotFoundException {
 		argsInternal = args;
-		in = new Scanner(System.in);
+		// get the OS name to open correct terminal process
 		String os = System.getProperty("os.name");
 		Process term = null;
+		
+		// checks if OS is windows
 		if(os.charAt(0) == 'W') {
 			term = Runtime.getRuntime().exec("cmd /c start cmd.exe");
 		}
+		
+		//checks if OS is mac
 		if(os.charAt(0) == 'M') {
 			term = Runtime.getRuntime().exec("/usr/bin/open -a Terminal");
 		}
+		
+		// checks if OS is linux
 		if(os.charAt(0) == 'L') {
 			term = Runtime.getRuntime().exec("/usr/bin/xterm");
 		}
+		
+		// if OS is not Windows, Mac, or Linux the game will not run
 		if(term == null) {
-			System.exit(-1);
+			System.exit(1);
 		}
+		
+		// sets System.out and System.in to the new process
 		System.setOut(new PrintStream(term.getOutputStream()));
+		System.setIn(term.getInputStream());
+		in = new Scanner(System.in);
+		
+		// starts game
 		System.out.println("~~Welcome to Doors~~");
 		player = Command.start(in, player);
 		if (player == null) {
@@ -52,6 +60,12 @@ public class Game {
 		run();
 	}
 	
+	/**
+	 * Beings running the game. Simulates a loading process, though nothing truly loads.
+	 * @throws InterruptedException
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public static void run() throws InterruptedException, ClassNotFoundException, IOException {
 		while (true) {
 			System.out.print("Loading Doors.");
@@ -67,6 +81,7 @@ public class Game {
 	}
 
 	/**
+	 * Returns the current player in the game.
 	 * @return the player
 	 */
 	public static Player getPlayer() {
@@ -74,8 +89,8 @@ public class Game {
 	}
 
 	/**
-	 * Fix for nullPointer when setting the player
-	 * 
+	 * Fix for nullPointer when setting the player.
+	 * No clue why this was needed.
 	 * @param name
 	 * @param command
 	 * @throws InterruptedException
@@ -165,6 +180,10 @@ public class Game {
 		return player;
 	}
 
+	/**
+	 * Saves the game as a serialized player class file in the users home directory.
+	 * @throws IOException
+	 */
 	public static void saveGame() throws IOException {
 		String filepath = System.getProperty("user.dir");
 		if (!new File(filepath + "/door_saves").exists()) {
@@ -191,6 +210,7 @@ public class Game {
 	}
 
 	/**
+	 * Sets the player to use during the game. Implemented after loading serialized file.
 	 * @param player
 	 *            the player to set
 	 */

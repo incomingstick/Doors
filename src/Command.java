@@ -8,6 +8,18 @@ import java.util.Scanner;
  */
 public class Command {
 
+	/**
+	 * The opening menu used to select a new game or to load a saved file.
+	 * Takes "new", "load", "exit", or "quit" as game commands.
+	 * New starts a new game. Load will allow the player to return to a saved game.
+	 * Exit and Quit will close the application.
+	 * @param command
+	 * @param player
+	 * @return
+	 * @throws InterruptedException
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public static Player start(Scanner command, Player player)
 			throws InterruptedException, ClassNotFoundException, IOException {
 		System.out
@@ -36,6 +48,24 @@ public class Command {
 			return start(command, player);
 	}
 
+	/**
+	 * Performs level up action on the player class.
+	 * The player distributes points across their Strength
+	 * Intelligence, and Dexterity attributes to make their
+	 * character more powerful. Takes each stat as a command,
+	 * along with: str, int, dex, get, show, help, exit, quit.<br>
+	 * str = Strength<br>
+	 * int = Intelligence<br>
+	 * dex = Dexterity<br>
+	 * get and show will show the current stat distribution<br>
+	 * help shows all available commands <br>
+	 * exit and quit will leave the game
+	 * 
+	 * @param command
+	 * @param points
+	 * @param player
+	 * @throws InterruptedException
+	 */
 	public static void levelUp(Scanner command, int points, Player player)
 			throws InterruptedException {
 		if (points <= 0)
@@ -166,6 +196,16 @@ public class Command {
 		levelUp(command, points - spent, player);
 	}
 
+	/**
+	 * The main game. After display of doors it takes user input
+	 * to select the door they wish to pass through. Use help
+	 * command to see all available commands.
+	 * @param command
+	 * @param player
+	 * @throws InterruptedException
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static void doors(Scanner command, Player player)
 			throws InterruptedException, IOException, ClassNotFoundException {
 		System.out.print("Command: ");

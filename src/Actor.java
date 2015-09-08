@@ -7,6 +7,9 @@ import java.io.IOException;
  */
 public abstract class Actor {
 
+	/**
+	 * Default constructor for Actor class.
+	 */
 	public Actor() {
 	}
 

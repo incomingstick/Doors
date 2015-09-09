@@ -22,11 +22,14 @@ public class Enemy extends Actor {
 	/**
 	 * String attributes of the enemy class:<br>
 	 * prefix - The main difficulty of the enemy.<br>
-	 * name - The type of enemy.<br>
+	 * name - The race of enemy.<br>
 	 * suffix - The additional difficulty of the enemy.
 	 */
 	private String prefix, name, suffix;
 
+	/**
+	 * The current character being played.
+	 */
 	private Player player;
 
 	/**
@@ -47,12 +50,12 @@ public class Enemy extends Actor {
 	}
 
 	/**
-	 * Sets the prefix of the enemies name. Possibilities are:<br>
-	 * "Mythic"<br>
-	 * "Heroic"<br>
-	 * "Angry"<br>
+	 * Sets the prefix of the enemies name and increases weight.
+	 * Possibilities are:<br>
+	 * "Mythic" adds 10 to weight<br>
+	 * "Heroic" adds 5 to weight<br>
+	 * "Angry" adds  2 to weight<br>
 	 * ""
-	 * It then adds to the weight attribute of the class.
 	 * @param player
 	 */
 	public void setPrefix(Player player) {
@@ -76,6 +79,16 @@ public class Enemy extends Actor {
 		}
 	}
 
+	/**
+	 * Sets the name (race) of the enemy and may change weight and maxHP.
+	 * Possibilities are:<br>
+	 * "Goblin"<br>
+	 * "Orc" adds 5 to weight and increases maxHP by 10%<br>
+	 * "Human"<br>
+	 * "Half-Elf"<br>
+	 * "Demon" adds 10 to weight and increases maxHP by 20%<br>
+	 * @param player
+	 */
 	public void setName(Player player) {
 		if (player.r.nextInt(101) >= 80) {
 			name = "Goblin";
@@ -94,6 +107,16 @@ public class Enemy extends Actor {
 		}
 	}
 
+	/**
+	 * Sets the suffix of the enemy and may change the weight slightly.
+	 * Possibilities are:
+	 * "Boss" adds 10 to the weight.<br>
+	 * "Warlord" adds 5 to the weight.<br>
+	 * "Spellblade" adds 2 to the weight.<br>
+	 * "Warrior" adds 1 to the weight.<br>
+	 * ""
+	 * @param player
+	 */
 	public void setSuffix(Player player) {
 		int level = 0;
 		if (player.getLevel() > 50)
@@ -115,10 +138,19 @@ public class Enemy extends Actor {
 		}
 	}
 
+	/**
+	 * Returns the weight attribute for determining rewards.
+	 * @return
+	 */
 	public int weight() {
 		return weight;
 	}
 
+	/**
+	 * Checks if the enemy is alive.
+	 * @return true if HP > 0<br>
+	 * false if HP <= 0
+	 */
 	public boolean alive() {
 		if (HP > 0)
 			return true;
@@ -127,7 +159,9 @@ public class Enemy extends Actor {
 	}
 
 	/**
-	 * @return the name
+	 * Returns the full name of the enemy in the form
+	 * prefix + name + suffix.
+	 * @return the name of the current enemy
 	 */
 	public String getName() {
 		String toString = "";
@@ -140,6 +174,7 @@ public class Enemy extends Actor {
 	}
 
 	/**
+	 * Returns the current HP of the enemy.
 	 * @return the hP
 	 */
 	public int getHP() {
@@ -147,14 +182,15 @@ public class Enemy extends Actor {
 	}
 
 	/**
-	 * @param hP
-	 *            the hP to set
+	 * Sets the current HP. Used when the enemy takes damage during combat.
+	 * @param hP the hP to set
 	 */
 	public void setHP(int hP) {
 		HP = hP;
 	}
 
 	/**
+	 * Returns the maximum HP.
 	 * @return the maxHP
 	 */
 	public int getMAX_HP() {
@@ -162,6 +198,7 @@ public class Enemy extends Actor {
 	}
 
 	/**
+	 * Sets the maximum HP. Used during construction.
 	 * @param maxHP
 	 *            the maxHP to set
 	 */
@@ -169,6 +206,10 @@ public class Enemy extends Actor {
 		this.maxHP = maxHP;
 	}
 
+	/**
+	 * Returns the damage and attribute modifier based on the name construction.
+	 * @return
+	 */
 	public int getMod() {
 		int mod = 0;
 		switch (prefix) {

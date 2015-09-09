@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Item implements Serializable {
 
 	/**
-	 * 
+	 * The serialID for serialization
 	 */
 	private static final long serialVersionUID = 2060182944871205151L;
 

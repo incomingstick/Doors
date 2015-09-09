@@ -377,6 +377,19 @@ public class Command {
 		}
 	}
 
+	/**
+	 * Creates battle environment where the player will fight
+	 * an enemy generated in the Enemy class. After the enemy is
+	 * defeated the player has a chance based on level and difficulty
+	 * of the enemy to find an item. Use the help command to get
+	 * command options.
+	 * @param command
+	 * @param player
+	 * @param enemy
+	 * @throws InterruptedException
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public static void combat(Scanner command, Player player, Enemy enemy)
 			throws InterruptedException, ClassNotFoundException, IOException {
 		System.out.println("Your HP: "
@@ -515,6 +528,15 @@ public class Command {
 		}
 	}
 
+	/**
+	 * Allows the player to view their current inventory, including equipped
+	 * items. Use the help command to see all available commands.
+	 * @param command
+	 * @param player
+	 * @throws InterruptedException
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public static void inventory(Scanner command, Player player)
 			throws InterruptedException, ClassNotFoundException, IOException {
 		if (player.getInventory().size() == 0) {

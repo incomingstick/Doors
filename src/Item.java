@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Item implements Serializable {
 
 	/**
-	 * The serialID for serialization
+	 * The serialID for serialization to save the game.
 	 */
 	private static final long serialVersionUID = 2060182944871205151L;
 
@@ -17,8 +17,19 @@ public class Item implements Serializable {
 	private int strMain = 0, intMain = 0, dexMain = 0, apOff = 0, spOff = 0,
 			critOff = 0, healing = 0, sellPrice = 0, itemLevel = 0;
 
+	/**
+	 * The current player
+	 */
 	private Player player;
 
+	/**
+	 * Creates item based on the current players attributes
+	 * and the weight passed through from the dead enemy.
+	 * Calls setRarity, setName, setPrefix, setStats, and
+	 * setItemLevel methods.
+	 * @param player
+	 * @param weight
+	 */
 	public Item(Player player, int weight) {
 		// saved in class instance for use of rng
 		this.player = player;

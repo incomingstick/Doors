@@ -2,8 +2,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * 
- * @author Nick Gaulke Nov 11, 2014 FinalProject
+ * The command class is the most important class in doors.
+ * Command controls the game flow, the methods being called based
+ * on the state the game will enter.
+ * @author Nick Gaulke Nov 11, 2014
  * 
  */
 public class Command {

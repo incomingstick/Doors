@@ -1,18 +1,39 @@
 import java.io.IOException;
 
 /**
- * 
+ * The enemy class extends the abstract Actor class.
+ * This is what the player fights during the Command.combat()
+ * method.
  * @author Nick Gaulke Nov 14, 2014 FinalProject
  * 
  */
 public class Enemy extends Actor {
 
+	/**
+	 * Int attributes of enemy class:<br>
+	 * HP - The current HP of the enemy.<br>
+	 * maxHP - The max HP of the enemy.<br>
+	 * minDamage - The minimum damage the enemy can do.<br>
+	 * maxDamage - The maximum damage the enemy can do.<br>
+	 * weight - The number used to determine how difficult the enemy will be.
+	 */
 	private int HP, maxHP, minDamage, maxDamage, weight;
 
+	/**
+	 * String attributes of the enemy class:<br>
+	 * prefix - The main difficulty of the enemy.<br>
+	 * name - The type of enemy.<br>
+	 * suffix - The additional difficulty of the enemy.
+	 */
 	private String prefix, name, suffix;
 
 	private Player player;
 
+	/**
+	 * Generate the base enemy attributes based on the Player class
+	 * given. Calls setPrefix(), setName(), and setSuffix() methods.
+	 * @param player
+	 */
 	public Enemy(Player player) {
 		maxHP = player.getMAX_HP();
 		minDamage = player.minDamage();
@@ -25,6 +46,15 @@ public class Enemy extends Actor {
 		HP = maxHP;
 	}
 
+	/**
+	 * Sets the prefix of the enemies name. Possibilities are:<br>
+	 * "Mythic"<br>
+	 * "Heroic"<br>
+	 * "Angry"<br>
+	 * ""
+	 * It then adds to the weight attribute of the class.
+	 * @param player
+	 */
 	public void setPrefix(Player player) {
 		int level = 0;
 		if (player.getLevel() > 50)

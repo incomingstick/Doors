@@ -51,7 +51,7 @@ public class Game {
 			System.exit(1);
 		}
 		
-		// sets System.out and System.in to the new process
+		// TODO sets System.out and System.in to the new process
 		System.setOut(new PrintStream(term.getOutputStream()));
 		System.setIn(term.getInputStream());
 		in = new Scanner(System.in);

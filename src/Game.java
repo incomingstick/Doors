@@ -50,7 +50,7 @@ public class Game {
 		if(term == null) {
 			System.exit(1);
 		}
-		
+		//test
 		// TODO sets System.out and System.in to the new process
 		System.setOut(new PrintStream(term.getOutputStream()));
 		System.setIn(term.getInputStream());

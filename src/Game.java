@@ -28,33 +28,6 @@ public class Game {
 			IOException, ClassNotFoundException {
 		argsInternal = args;
 		// get the OS name to open correct terminal process
-		String os = System.getProperty("os.name");
-		Process term = null;
-		
-		// checks if OS is windows
-		if(os.charAt(0) == 'W') {
-			term = Runtime.getRuntime().exec("cmd /c start cmd.exe");
-		}
-		
-		//checks if OS is mac
-		if(os.charAt(0) == 'M') {
-			term = Runtime.getRuntime().exec("/usr/bin/open -a Terminal");
-		}
-		
-		// checks if OS is linux
-		if(os.charAt(0) == 'L') {
-			term = Runtime.getRuntime().exec("/usr/bin/xterm");
-		}
-		
-		// if OS is not Windows, Mac, or Linux the game will not run
-		if(term == null) {
-			System.exit(1);
-		}
-
-		// TODO sets System.out and System.in to the new process
-		System.setOut(new PrintStream(term.getOutputStream()));
-		System.setIn(term.getInputStream());
-		in = new Scanner(System.in);
 		
 		// starts game
 		System.out.println("~~Welcome to Doors~~");
